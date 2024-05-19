@@ -4,6 +4,7 @@
 }
 
 .calculator {
+    position: relative;
     background-color: grey;
     padding: 20px;
     max-width: 400px;
@@ -14,14 +15,30 @@
     margin-top: 40px;
 }
 
-#display {
+.display {
     background-color: darkkhaki;
-    width: 100%;
     padding: 10px;
     font-size: 24px;
     border: none;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3) inset;
     border-radius: 5px;
+}
+
+.result, .history {
+    text-align: end;
+    height: 30px;
+    width: 100%;
+    font-size: 24px;
+    background-color: transparent;
+    border: none;
+}
+
+.result:focus {
+    outline: none;
+}
+
+.history {
+    font-size: 16px;
 }
 
 .buttons {
@@ -31,51 +48,74 @@
     margin-top: 20px;
 }
 
-button {
+.buttons button {
     padding: 10px;
     font-size: 12px;
     border: none;
+    border-radius: 50%;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s ease;
 }
 
-.clearAll {
-    background-color: rgb(236, 151, 151);
+.buttons .clearAll,
+.buttons .clear,
+.buttons .copy {
+    background-color: lightsalmon;
     color: black;
 }
 
-.clearAll:hover {
-    background-color: rgb(194, 107, 107);
+.buttons .clearAll:hover,
+.buttons .clear:hover,
+.buttons .copy:hover {
+    background-color: rgb(212, 118, 80);
+}
+
+.buttons .number,
+.buttons .decimal {
+    background-color: rgba(255, 255, 255, 0.733);
     color: black;
 }
 
-
-
-.number, .decimal, .clear, .copy {
-    background-color: white;
-    color: black;
-}
-
-.number:hover, .decimal:hover, .clear:hover, .copy:hover {
+.buttons .number:hover,
+.buttons .decimal:hover {
     background-color: darkgrey;
 }
 
-.operator {
+.buttons .operator {
     background-color: lightblue;
     color: black;
 }
 
-.operator:hover {
+.buttons .operator:hover {
     background-color: rgb(94, 163, 206);
-    color: white;
 }
 
-.equals {
+.buttons .equals {
     background-color: lightgreen;
 }
 
-.equals:hover {
+.buttons .equals:hover {
     background-color: rgb(90, 173, 90);
+}
+
+@media (max-width: 400px) {
+    .buttons .clearAll, .buttons .clear, .buttons .copy, .buttons .equals {
+        grid-column: span 4;
+    }
+}
+
+.notifier {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 20%;
+}
+
+.notifier .notification {
+    background-color: rgba(255, 255, 224, 0.822);
+    margin: 10px 0;
+    color: black;
+    padding: 10px;
 }
